@@ -6,4 +6,4 @@
 ### GBDT
 ### Percrptron
 ### Decision tree
-### GMM
+### GMMvsKmean
