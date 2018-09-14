@@ -2,7 +2,9 @@
     Personal practice notes are only used for learning
 ## Project specification
 ### `1. Auxiliary tool file - Auxi.py`
-    It is used to generate random sample data and visualize the model effect
+* Auxiliary
+    * Generate random samples with linear or onlinear distributions
+    * Model effect visualization
 ### `2. Adaboost`
 * Additive model
     * Each round of classification results are weighted and then added to the final classification results
