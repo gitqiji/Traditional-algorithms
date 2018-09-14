@@ -1,7 +1,9 @@
 # Traditional-algorithms
 ## Traditional algorithms related to machine learning
-### adaboost
-### gbdt
-### percrptron
-### decision tree
+### Auxiliary tool file
+help
+### Adaboost
+### GBDT
+### Percrptron
+### Decision tree
 ### GMM
