@@ -1,10 +1,10 @@
 # Traditional-algorithms related to machine learning
     Personal practice notes are only used for learning
 ## Project specification
-### `Auxiliary tool file - Auxi.py`
+### `1. Auxiliary tool file - Auxi.py`
     It is used to generate random sample data and visualize the model effect
-### `Adaboost`
-### `GBDT`
-### `Percrptron`
-### `Decision tree`
-### `GMMvsKmean`
+### `2.Adaboost`
+### `3.GBDT`
+### `4.Percrptron`
+### `5.Decision tree`
+### `6.GMMvsKmean`
