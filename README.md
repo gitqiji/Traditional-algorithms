@@ -1,4 +1,4 @@
-# Traditional-algorithms related to machine learning
+# Traditional algorithms related to machine learning
     Personal practice notes are only used for learning
 ## Project specification
 ### `1. Auxiliary tool file - Auxi.py`
