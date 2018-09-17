@@ -2,12 +2,10 @@ import numpy as np
 import cv2
 
 class Auxi(object):
-    def __init__(self,name=None):
+    def __init__(self,name='display'):
         self.col = 100
         self.row = 2
-        self.name = 'display'
-        if name is not None:
-            self.name = name
+        self.name = name
         self.color = {
             -1: (0, 0, 255),
             0: (0, 0, 255),
@@ -72,40 +70,40 @@ class Auxi(object):
         return x,y,line
     def gaussiondata(self,flag=None):
         pos = [160,350]
-        sigma = [20,30]
-        r = 80
+        sigma = [30,30]
+        r = 80;uni_num = 200
         def data1():
-            x1 = np.random.randint(200,290,size=(2,50))
-            x2 = np.random.randint(310,350,size=(2,50))
-            x3 = np.vstack((np.random.randint(310,350,size=(1,50)),np.random.randint(200,290,size=(1,50))))
+            x1 = np.random.randint(200,290,size=(2,uni_num))
+            x2 = np.random.randint(310,350,size=(2,uni_num))
+            x3 = np.vstack((np.random.randint(310,350,size=(1,uni_num)),np.random.randint(200,290,size=(1,uni_num))))
             x = np.hstack((x1,x2,x3))
             return x
         def data2():
-            x1 = np.vstack((np.random.normal(pos[0],sigma[1],size=50),np.random.normal(pos[0],sigma[1],size=50)))
-            x2 = np.vstack((np.random.normal(pos[1],sigma[1],size=50),np.random.normal(pos[1],sigma[1],size=50)))
-            x3 = np.vstack((np.random.normal(pos[1],sigma[1],size=50),np.random.normal(pos[0],sigma[1],size=50)))
+            x1 = np.vstack((np.random.normal(pos[0],sigma[1],size=uni_num),np.random.normal(pos[0],sigma[1],size=uni_num)))
+            x2 = np.vstack((np.random.normal(pos[1],sigma[1],size=uni_num),np.random.normal(pos[1],sigma[1],size=uni_num)))
+            x3 = np.vstack((np.random.normal(pos[1],sigma[1],size=uni_num),np.random.normal(pos[0],sigma[1],size=uni_num)))
             x = np.hstack((x1,x2,x3))
             #print x
             x = x.astype(int)
             return x
         def data3():
-            x1 = np.vstack((np.random.normal(pos[0],sigma[0],size=50),np.random.randint(pos[0]-r,pos[0]+r,size=(1,50))))
-            x2 = np.vstack((np.random.normal(pos[1],sigma[0],size=50),np.random.randint(pos[0]-r,pos[0]+r,size=(1,50))))
-            x3 = np.vstack((np.random.randint(pos[0]-r,pos[0]+r,size=(1,50)),np.random.normal(pos[1],sigma[0],size=50)))
-            x4 = np.vstack((np.random.randint(pos[1]-r,pos[1]+r,size=(1,50)),np.random.normal(pos[1],sigma[0],size=50)))
+            x1 = np.vstack((np.random.normal(pos[0],sigma[0],size=uni_num),np.random.randint(pos[0]-r,pos[0]+r,size=(1,uni_num))))
+            x2 = np.vstack((np.random.normal(pos[1],sigma[0],size=uni_num),np.random.randint(pos[0]-r,pos[0]+r,size=(1,uni_num))))
+            x3 = np.vstack((np.random.randint(pos[0]-r,pos[0]+r,size=(1,uni_num)),np.random.normal(pos[1],sigma[0],size=uni_num)))
+            x4 = np.vstack((np.random.randint(pos[1]-r,pos[1]+r,size=(1,uni_num)),np.random.normal(pos[1],sigma[0],size=uni_num)))
             x = np.hstack((x1,x2,x3,x4)).astype(int)
             return x
         def data4():
-            x1 = np.vstack((np.random.normal(pos[0],sigma[0],size=50),np.linspace(pos[0]-r,pos[0]+r,50)))
-            x2 = np.vstack((np.random.normal(pos[1],sigma[0],size=50),np.linspace(pos[0]-r,pos[0]+r,50)))
-            x3 = np.vstack((np.linspace(pos[0]-r,pos[0]+r,50),np.random.normal(pos[1],sigma[0],size=50)))
-            x4 = np.vstack((np.linspace(pos[1]-r,pos[1]+r,50),np.random.normal(pos[1],sigma[0],size=50)))
+            x1 = np.vstack((np.random.normal(pos[0],sigma[0],size=uni_num),np.linspace(pos[0]-r,pos[0]+r,uni_num)))
+            x2 = np.vstack((np.random.normal(pos[1],sigma[0],size=uni_num),np.linspace(pos[0]-r,pos[0]+r,uni_num)))
+            x3 = np.vstack((np.linspace(pos[0]-r,pos[0]+r,uni_num),np.random.normal(pos[1],sigma[0],size=uni_num)))
+            x4 = np.vstack((np.linspace(pos[1]-r,pos[1]+r,uni_num),np.random.normal(pos[1],sigma[0],size=uni_num)))
             x = np.hstack((x1,x2,x3,x4)).astype(int)
             return x
         data = {1:data1(),2:data2(),3:data3(),4:data4()}
         select = lambda flag: data[flag]
         x = select(flag)
-        y1 = np.zeros((1,50))
+        y1 = np.zeros((1,uni_num))
         y2 = np.hstack((y1,y1+1))
         y3 = np.hstack((y1,y2+1))
         y4 = np.hstack((y1,y3+1))
