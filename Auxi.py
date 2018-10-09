@@ -11,7 +11,10 @@ class Auxi(object):
             0: (0, 0, 255),
             1: (0, 255, 0),
             2: (255, 255, 255),
-            3: (255,0,0)}
+            3: (255,0,0),
+            4: (255,255,0),
+            5: (255,0,255),
+            6: (0,255,255)}
     def savefle(self,x,y):
         with open('data.txt','w') as fdata:
             for i in range(100):
@@ -111,6 +114,27 @@ class Auxi(object):
         line = [[(0,300),(500,300)],[(300,0),(300,500)]]
         return x,y[flag],line
 
+    def sindata(self):
+        def data(pos1,pos2):
+            cnum = 50
+            x1 = np.random.random(size=(1,cnum)) * np.pi # expand pi times
+            y1 = 50 * np.sin(x1) + pos1 # expand 50 times and translation to pos1
+            x1 = np.vstack((x1*50 + 100,y1)).astype(int)
+            y1 = np.zeros((1,cnum))
+            x2 = np.random.random((1,cnum)) * np.pi + 0.5 * np.pi
+            y2 = 50 * np.cos(x2) + pos2
+            x2 = np.vstack((x2*50 + 100,y2)).astype(int)
+            x = np.hstack((x1,x2))
+            y = np.hstack((y1,y1+1))
+            return x,y
+        x1,y1 = data(230,270)
+        x2,y2 = data(240,260)
+        x = np.hstack((x1,x2))
+        y = np.hstack((y1,y2))
+        line = [[(0,260),(500,260)]]
+
+        return x,y,line
+
     def plotinitial(self,x,line):
         m = x.shape[1]
         img = np.zeros((500,500,3),'uint8')
@@ -159,5 +183,7 @@ class Auxi(object):
 
 if __name__ == '__main__':
     auxi = Auxi()
-    x,y,line = auxi.gaussiondata(3)
+    #x,y,line = auxi.gaussiondata(3)
+    #auxi.plotres(x,y[0],line)
+    x,y,line = auxi.sindata()
     auxi.plotres(x,y[0],line)
