@@ -175,10 +175,6 @@ class Auxi(object):
 
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        cmd = input()
-        if cmd == 1:
-            imgname = 'C:\\Users\\qiji\\Documents\\temp\\' + self.name + '.jpg'
-            cv2.imwrite(imgname,img)
 
 
 if __name__ == '__main__':
