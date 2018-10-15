@@ -118,12 +118,11 @@ class Dectree(object):
         mark, vau = self.splitdata(y, curpre)
         subdata = np.delete(x,np.where(curpre == mark),1)
         suby = np.delete(y,np.where(curpre == mark),1)
-        # This condition select the right part of the thd, so the sml should be <=
-        if sml == 'gt' and mark == 0:
-            sml = 'lt'
-        # This condition select the left part of the thd, so the sml should be >=
-        elif sml == 'lt' and mark == 0:
-            sml = 'gt'
+        
+        # The sml needs to be adjusted if the right part of the thd is selected
+        if mark == 0:
+            sml = self.shift[abs(self.shift.index(sml) - 1)]
+            
         node = (self.feaname[dim[0]],sml,thd)
         tree[node] = vau
         print tree,type(vau)
